@@ -22,9 +22,11 @@
 
 :root {
     --color-alpha: #3385FF;
-    --color-alpha-light: #1B4186;
-    --color-alpha-dark: #20223a;
-
+    --color-alpha-light: #4F95FF;
+    --color-alpha-dark: #1B4186;
+    --color-neutral-light: #F5F6FA;
+    --color-neutral: #8B8C9A;
+    --color-neutral-dark: #20223A;
 }
 
 /* CSS variables here */
@@ -43,11 +45,11 @@ html {
     font-size: 16px;
     line-height: 1.5;
     font-family: 'Inter UI', 'Comic Sans MS', sans-serif;
-    color: var(--color-alpha-dark);
+    color: var(--color-neutral-dark);
     box-sizing: border-box;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
-    background-color: #F5F6FA;
+    background-color: var(--color-neutral-light);
 }
 
 html, body, section {
@@ -529,10 +531,10 @@ a:focus {
 -moz-appearance: none;
 appearance: none;
 width: 100%;
-border: 1px solid grey;
+border: 1px solid lightgray;
 border-radius: 4px;
 font-family: 'Inter UI', 'Comic Sans MS', sans-serif;
-color: var(--color-alpha-light);
+color: var(--color-neutral-dark);
 font-size: 16px;
 line-height: 24px;
 padding: 11px;
@@ -553,7 +555,7 @@ outline: none;
     font-size: 14px;
     line-height: 16px;
     margin-bottom: 8px;
-    color: #606274;
+    color: var(--color-neutral);
 }
 .c-label--option{
     margin: 0;
@@ -627,10 +629,10 @@ outline: none;
 
 .c-button {
 width: 100%;
-padding: 2px;
-line-height: 50px;
-font-size: 20px;
-font-weight: 900;
+padding: 10px;
+line-height: 24px;
+font-size: 16px;
+font-weight: 600;
 border: 1px solid;
 border-radius: 5px;
 color:white;
@@ -638,8 +640,8 @@ background-color: var(--color-alpha);
 }
 
 .c-button:hover {
-box-shadow: 0 1px 3px 3px lightblue;
-line-height: 53px;
+    cursor: pointer;
+    background-color: var(--color-alpha-light);
 }
 
 .c-button:focus {
