@@ -1,12 +1,29 @@
 /*------------------------------------*\
 #FONTS
 \*------------------------------------*/
-
+@font-face {
+    font-family: "Inter UI";
+    font-weight: 400;
+    src: url(../fonts/Inter-UI-Regular.woff2)
+  }
+  @font-face {
+    font-family: "Inter UI";
+    font-weight: 600;
+    src: url(../fonts/Inter-UI-Medium.woff2)
+  }
+  @font-face {
+    font-family: "Inter UI";
+    font-weight: 700;
+    src: url(../fonts/Inter-UI-Bold.woff2)
+  }
 /*------------------------------------*\
 #Variables
 \*------------------------------------*/
 
 :root {
+    --color-alpha: #3385FF;
+    --color-alpha-light: #1B4186;
+    --color-alpha-dark: #20223a;
 
 }
 
@@ -25,14 +42,17 @@
 html {
     font-size: 16px;
     line-height: 1.5;
-    font-family: Helvetica, arial, sans-serif;
-    color: grey;
+    font-family: 'Inter UI', 'Comic Sans MS', sans-serif;
+    color: var(--color-alpha-dark);
     box-sizing: border-box;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
-    background-color: white;
+    background-color: #F5F6FA;
 }
 
+html, body, section {
+    height: 100%;
+}
 *,
 *:before,
 *:after {
@@ -47,13 +67,13 @@ html {
 */
 
 ::-moz-selection {
-    background: HotPink;
+    background: var(--color-alpha);
     color: white;
     text-shadow: none;
 }
 
 ::selection {
-    background: HotPink;
+    background: var(--color-alpha);
     color: white;
     text-shadow: none;
 }
@@ -61,7 +81,9 @@ html {
 /*------------------------------------*\
 #Elements
 \*------------------------------------*/
-
+label, input{
+    display: block;
+}
 /*
 Elements: Images
 ---
@@ -158,13 +180,13 @@ hr {
 }
 
 a {
-    color: HotPink;
+    color: var(--color-alpha);
     transition: all .1s ease-in-out;
 }
 
 a:visited,
 a:active {
-    color: HotPink;
+    color: blue;
 }
 
 a:hover,
@@ -181,7 +203,9 @@ a:focus {
     ---
     Creates a horizontal row that stretches the viewport and adds padding around children
 */
-
+.o-row--optional{
+    background-image: linear-gradient(to right, var(--color-alpha), var(--color-alpha-light));
+}
 .o-row {
     position: relative;
     padding: 24px 24px 0;
@@ -189,6 +213,8 @@ a:focus {
 
 .o-row--login {
     /* stuff here to align the card */
+    display: flex;
+    align-items: center;
 }
 
 /* size modifiers */
@@ -431,19 +457,67 @@ a:focus {
     ---
     Website main logo
 */
-
+.c-logo{
+    height: 24px;
+    display: flex;
+    justify-content: center;
+}
+.c-logo__symbol{
+    display: block;
+    height: 100%;
+}
+.c-logo-outer-circle{
+    fill: var(--color-alpha-dark);
+}
+.c-logo-inner-circle{
+    fill:var(--color-alpha);
+}
+.c-logo-text{
+    fill: var(--color-alpha-light);
+}
+.c-logo--optional{
+    fill: white;
+}
 /*
     Component: Card
     ---
     Card with box shadow
 */
-
+.c-card{
+    background-color: white;
+    border: 1px solid rgba(0,0,0,.125);
+    border-radius: .5rem;
+    box-shadow: 0 .125rem .25rem rgba(0,0,0,.075);
+}
+.c-card__body{
+    padding: 1rem;
+}
+.c-card__title{
+    text-align: center;
+    font-size: 20px;
+    font-weight: 700;
+    padding-top: 50px;
+    margin: 0;
+}
+.c-card__footer{
+    border-top: 1px solid rgba(0,0,0,.125);
+    text-align: center;
+    padding-top: 20px;
+}
+@media (min-width: 400px) {
+    .c-card__body{
+        padding: 3rem;
+    }
+}
 /*
     Component: Forms
     ---
     Everything form related here
 */
-
+.c-form-field--option{
+    display: flex;
+    align-items: center;
+}
 /*
     Component: Input
     ---
@@ -451,10 +525,22 @@ a:focus {
 */
 
 .c-input {
-
+-webkit-appearance: none;
+-moz-appearance: none;
+appearance: none;
+width: 100%;
+border: 1px solid grey;
+border-radius: 4px;
+font-family: 'Inter UI', 'Comic Sans MS', sans-serif;
+color: var(--color-alpha-light);
+font-size: 16px;
+line-height: 24px;
+padding: 11px;
+outline: none;
 }
 
 .c-input:focus {
+    box-shadow: 0 1px 3px 3px lightblue;
 }
 
 /*
@@ -464,7 +550,14 @@ a:focus {
 */
 
 .c-label {
-
+    font-size: 14px;
+    line-height: 16px;
+    margin-bottom: 8px;
+    color: #606274;
+}
+.c-label--option{
+    margin: 0;
+    margin-left: 8px;
 }
 
 /* If a input is focused within the form-field class change te color of the label */
@@ -533,19 +626,29 @@ a:focus {
 */
 
 .c-button {
-
+width: 100%;
+padding: 2px;
+line-height: 50px;
+font-size: 20px;
+font-weight: 900;
+border: 1px solid;
+border-radius: 5px;
+color:white;
+background-color: var(--color-alpha);
 }
 
 .c-button:hover {
-
+box-shadow: 0 1px 3px 3px lightblue;
+line-height: 53px;
 }
 
 .c-button:focus {
-
+    outline: none;
+    box-shadow: -2px -2px 3px 3px lightblue;
 }
 
 .c-button:active {
-
+background-color: black;
 }
 
 .c-button--block {
